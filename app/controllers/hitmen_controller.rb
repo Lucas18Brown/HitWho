@@ -20,6 +20,13 @@ class HitmenController < ApplicationController
 
     redirect_to hitmen_path(@hitman)
   end
+  
+  def destroy
+    @hitman = Hitman.find(params[:id])
+    @hitman.destroy
+    redirect_to hitmen_path,
+    status: :see_other
+  end
 
   private
 
