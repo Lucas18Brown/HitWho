@@ -90,4 +90,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Heroku server config for production
+  config.action_mailer.default_url_options = { host: 'https://airbnb-lucas18brown.herokuapp.com' }
+
 end
