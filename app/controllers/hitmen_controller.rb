@@ -1,4 +1,13 @@
 class HitmenController < ApplicationController
+  before_action :set_hitman, only: %i[show]
+  
+  def index
+    @hitmen = Hitman.all
+  end
+
+  def show
+  end
+  
   # method for new hitmen
   def new
     @hitman = Hitman.new
@@ -13,6 +22,10 @@ class HitmenController < ApplicationController
   end
 
   private
+
+  def set_hitman
+    @hitman = Hitman.find(params[:id])
+  end
 
   # strong params for hitmen
   def hitmen_params
