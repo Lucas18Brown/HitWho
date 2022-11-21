@@ -3,3 +3,5 @@
 #
 # Examples:
 #
+
+# Hitman.create(name: "Star Wars", price: 5, description: "likes to run his victims over", rating: 5)
