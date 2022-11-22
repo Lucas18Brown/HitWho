@@ -1,0 +1,8 @@
+<h1>Hitmen</h1>
+
+<% @hitmen.each do |hitman| %>
+  <li>
+    <%= link_to hitman.name, hitman_path(hitman) %>
+    <%= link_to 'Delete', hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+  </li>
+<% end %>
