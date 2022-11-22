@@ -1,0 +1,21 @@
+.profile-container {
+  // position: relative;
+  img {
+    // position: absolute;
+    // top: -125px;
+    // left: 100px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 3px solid white ;
+  }
+}
+
+.profile-container i {
+  font-size: 40px;
+}
+
+.profile-container p {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
+}
