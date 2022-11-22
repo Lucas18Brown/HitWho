@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   resources :hitmen do
     resources :bookings, only: [:new, :create, :update, :destroy, :index, :edit, :show]
   end
+  
+  resources :user, only: [:show]
+  
   get "/my_bookings", to: "bookings#show_bookings"
 end
