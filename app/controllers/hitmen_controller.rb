@@ -16,7 +16,11 @@ class HitmenController < ApplicationController
     @hitman = Hitman.new(hitman_params)
     @hitman.user = current_user
     @hitman.save
-    redirect_to hitman_path(@hitman)
+    if @hitman.save
+      redirect_to hitman_path(@hitman)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
