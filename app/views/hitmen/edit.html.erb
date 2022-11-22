@@ -1,0 +1,10 @@
+<%# Edit Profile form %>
+<%= simple_form_for @hitman do |f| %>
+  <%= f.input :name %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.button 'Save changes' %>
+<% end %>
+
+<%# Link to go back to hitman's profile %>
+<%= link_to "Back", hitman_path(@hitman) %>
