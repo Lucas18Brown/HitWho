@@ -7,3 +7,18 @@
 @import "back_button";
 @import "profile_avatar";
 @import "bookings_container";
+@import "profile_banner";
+@import "profile_picture";
+@import "cards";
+@import "icon";
+@import "banner";
+
+body {
+  color: #2b2d42;
+  background-color: #edf2f4;
+}
+
+.big-height {
+  min-height: 3000px;
+}
+

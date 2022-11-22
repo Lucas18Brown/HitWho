@@ -1,6 +1,20 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  position: sticky;
+  top: 0;
+}
+
+.nav-item {
+  align-items: center;
+}
+
+.nav-bookings {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-bookings:hover {
+  color: #d90429;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +22,14 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 60px;
 }
+
+.overlay {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  top: 0; /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  padding: 0;
+ }

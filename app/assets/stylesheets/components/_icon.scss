@@ -1,0 +1,17 @@
+.icons{
+  display: flex;
+  justify-content: space-around;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline;
+      margin: 20px;
+      i {
+        color: #d90429;
+        font-size: 30px;
+      }
+    }
+  }
+}
