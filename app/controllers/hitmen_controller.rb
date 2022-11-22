@@ -1,5 +1,5 @@
 class HitmenController < ApplicationController
-  before_action :set_hitman, only: %i[show edit destroy]
+  before_action :set_hitman, only: %i[show edit update destroy]
 
   def index
     @hitmen = Hitman.all
@@ -23,8 +23,7 @@ class HitmenController < ApplicationController
   end
 
   def update
-    @hitman = Hitman.find(hitman_params)
-    @hitman.update(@hitman)
+    @hitman.update(hitman_params)
     # Redirect to hitman's profile
     redirect_to hitman_path(@hitman)
   end

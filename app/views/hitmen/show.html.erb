@@ -1,1 +1,6 @@
 <h1><%= @hitman.name %></h1>
+
+<p><%= @hitman.description %></p>
+
+<%= link_to "Edit", edit_hitman_path(@hitman) %>
+<%= link_to "Back", hitmen_path %>
