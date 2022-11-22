@@ -1,8 +1,59 @@
-<h1>Hitmen</h1>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon overlay" data-controller="navbar" data-action="scroll@window->navbar#background">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <%= image_tag "logo.png", class: 'logo'%>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<% @hitmen.each do |hitman| %>
-  <li>
-    <%= link_to hitman.name, hitman_path(hitman) %>
-    <%= link_to 'Delete', hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-  </li>
-<% end %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if current_user %>
+         <li class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My Bookings", my_bookings_path, class: "dropdown-item" %>
+              <%= link_to "My Hitmen", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+          <% else %>
+            <li class="nav-item"> <%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="banner">
+</div>
+<div class="big-height">
+<div class="container">
+
+  <div class="icons">
+    <ul>
+      <li><i class="fa-solid fa-gun"></i></li>
+      <li><i class="fa-regular fa-hand-back-fist"></i></li>
+      <li><i class="fa-solid fa-car-side"></i></li>
+    </ul>
+  </div>
+  <div class="cards">
+    <% @hitmen.each do |hitman| %>
+      <div class="card">
+        <img src="https://i.pinimg.com/564x/d4/ea/ba/d4eaba5087c88acbd79d42602aa5e175.jpg" alt="agent 47">
+        <div class="rating">
+          <p><%=hitman.rating %><i class="fa-solid fa-star"></i></p>
+        </div>
+        <div class="content">
+          <h3><strong><%= link_to hitman.name.capitalize, hitman_path(hitman) %></strong></h3>
+          <div class="desc-price">
+            <p><%= hitman.description %></p>
+            <p><%= "£#{hitman.price}" %></p>
+          </div>
+          <%# <%= link_to 'Delete', hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
