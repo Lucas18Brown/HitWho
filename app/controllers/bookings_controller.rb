@@ -1,10 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_hitman, only: %i[index new create]
 
-  def index
-    @bookings = Booking.where(user: current_user)
-  end
-
   def show_bookings
     @bookings = Booking.where(user: current_user)
   end
