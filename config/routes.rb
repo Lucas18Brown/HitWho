@@ -7,10 +7,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :hitmen do
-    resources :bookings, only: [:new, :create, :update, :destroy, :index, :edit, :show]
+    resources :bookings, only: [:new, :create, :update, :index, :edit, :show]
   end
-  
+  resources :bookings, only: [:destroy]
   resources :user, only: [:show]
-  
-  get "/my_bookings", to: "bookings#show_bookings"
 end

@@ -15,6 +15,10 @@
                     <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
                   <div class="card-product-infos">
                     <h2><%= booking.name %></h2>
+                    <%= link_to "Delete",
+                        booking_path(booking),
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                    %>
                   </div>
                 </div>
               <% end %>
