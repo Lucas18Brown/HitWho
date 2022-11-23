@@ -9,9 +9,9 @@
 require "faker"
 
 puts "Destroying"
-User.destroy_all
 Booking.destroy_all
 Hitman.destroy_all
+User.destroy_all
 puts "Done Destroying"
 
 puts "Creating user"
