@@ -1,3 +1,7 @@
+.bookings-container {
+  position: relative;
+}
+
 .user-profile{
   float: center;
 }
@@ -29,4 +33,15 @@
 .fa-solid {
   padding: 20px;
   color: #d90429;
+}
+
+.btn-danger {
+  box-shadow: 1px 1px 8px rgba(128, 128, 128, 0.2);
+  position: absolute;
+  top: 10px;
+  left: 140px;
+  a {
+    text-decoration: none;
+    color: #2B2D42;
+  }
 }

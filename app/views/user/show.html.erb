@@ -11,15 +11,16 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
               <div class ="myhitmen">
-                  <h1> My Hitmen</h1>
-                  <% current_user.hitmen.each do |hitman| %>
-                        <div class="card-product-hitmen">
-                            <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-                          <div class="card-product-infos">
-                            <h2><%= hitman.name %></h2>
-                          </div>
+                <h1> My Hitmen</h1>
+                <% current_user.hitmen.each do |hitman| %>
+                      <div class="card-product-hitmen">
+                          <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                        <div class="card-product-infos">
+                          <h2><%= hitman.name %></h2>
+                          <%# <%= link_to "delete", user_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
                         </div>
-                  <% end %>
+                      </div>
+                <% end %>
               </div>
           </div>
         </div>
@@ -42,6 +43,9 @@
           </div>
         </div>
   </div>
+  <button class="btn btn-danger">
+    <%= link_to "Add Hitman", new_hitman_path %>
+  </button>
 </div>
 
 <%# on the left profile, on the right bookings %>
