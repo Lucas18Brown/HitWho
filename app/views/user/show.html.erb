@@ -1,10 +1,27 @@
 <div class="bookings-container">
- <%= link_to "Back", "#", class: "back-button" %>
+  <%= link_to hitmen_path, class: "back-button" do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
   <div class="row">
       <div class="col-12 col-md-6 col-lg-4">
         <div class="user-profile">
+        <div class="imgitem">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "profile-avatar", alt: "avatar-large" %>
-          </h2> <%= current_user.username %><h2>
+            <span class="caption"><%= current_user.username.capitalize %></span>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class ="myhitmen">
+                  <h1> My Hitmen</h1>
+                  <% current_user.hitmen.each do |hitman| %>
+                        <div class="card-product-hitmen">
+                            <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                          <div class="card-product-infos">
+                            <h2><%= hitman.name %></h2>
+                          </div>
+                        </div>
+                  <% end %>
+              </div>
+          </div>
         </div>
       </div>
         <div class="col-12 col-md-6 col-lg-8">
