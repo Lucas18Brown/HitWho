@@ -45,3 +45,24 @@
     color: #2B2D42;
   }
 }
+
+.card-product-hitmen {
+  position: relative;
+
+  a {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.card-product {
+  position: relative;
+  margin-right: 25px;
+
+  a {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

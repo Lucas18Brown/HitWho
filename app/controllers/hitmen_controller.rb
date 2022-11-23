@@ -34,7 +34,7 @@ class HitmenController < ApplicationController
 
   def destroy
     @hitman.destroy
-    redirect_to hitmen_path, status: :see_other
+    redirect_to user_path, status: :see_other
   end
 
   private
