@@ -39,15 +39,32 @@
 <div class="banner">
 </div>
 <div class="big-height">
-<div class="container">
+<div class="container" data-controller="list-item" data-list-item-hitmen-value="<%= @hitmen.to_json %>">
 
   <div class="icons">
     <ul>
-      <li><i class="fa-solid fa-gun"></i></li>
-      <li><i class="fa-regular fa-hand-back-fist"></i></li>
-      <li><i class="fa-solid fa-car-side"></i></li>
+      <%= link_to '/hitmen?query=gun&commit=Search' do %>
+        <li><i class="fa-solid fa-gun"></i></li>
+      <% end %>
+      <%= link_to '/hitmen?query=punch&commit=Search' do %>
+        <li><i class="fa-regular fa-hand-back-fist"></i></li>
+      <% end %>
+      <%= link_to '/hitmen?query=car&commit=Search' do %>
+        <li><i class="fa-solid fa-car-side"></i></li>
+      <% end %>
     </ul>
   </div>
+
+  <div class="form-container" style="display: none;">
+    <%= form_with url: hitmen_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "input a method"%>
+      <%= submit_tag "Search", class: "btn btn-primary"%>
+    <% end %>
+  </div>
+
   <div class="cards">
     <% @hitmen.each do |hitman| %>
       <div class="card">
