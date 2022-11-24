@@ -14,6 +14,12 @@
             <p><%= current_user.username.capitalize %></p>
           </li>
          <li class="nav-item dropdown">
+            <!-- Cloudinary begining -->
+
+              <%# <%= render "layouts/cloudinary", place_holder: current_user, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> %>
+
+            <!-- Cloudinary end -->
+
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
@@ -45,7 +51,11 @@
   <div class="cards">
     <% @hitmen.each do |hitman| %>
       <div class="card">
-        <img src="https://i.pinimg.com/564x/d4/ea/ba/d4eaba5087c88acbd79d42602aa5e175.jpg" alt="agent 47">
+      <!-- Cloudinary begining -->
+
+        <%= render "layouts/cloudinary", place_holder: hitman %>
+
+      <!-- Cloudinary end -->
         <div class="rating">
           <p><%=hitman.rating %><i class="fa-solid fa-star"></i></p>
         </div>

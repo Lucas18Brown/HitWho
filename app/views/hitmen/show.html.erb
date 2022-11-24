@@ -9,7 +9,12 @@ NAVBAR
 </div>
 
 <div class="profile-container">
-  <img src="https://twinfinite.net/wp-content/uploads/2021/04/hitman-3.jpeg" alt="">
+<!-- Cloudinary begining -->
+
+  <%= render "layouts/cloudinary", place_holder: @hitman %>
+
+<!-- Cloudinary end -->
+
 
   <p class="profile-name">
     <%= @hitman.name %>
