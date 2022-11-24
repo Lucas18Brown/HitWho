@@ -14,6 +14,12 @@
             <p><%= current_user.username.capitalize %></p>
           </li>
          <li class="nav-item dropdown">
+            <!-- Cloudinary begining -->
+
+              <%# <%= render "layouts/cloudinary", place_holder: current_user, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> %>
+
+            <!-- Cloudinary end -->
+
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
@@ -36,20 +42,42 @@
   </div>
 </div>
 <div class="big-height">
-<div class="container">
+<div class="container" data-controller="list-item" data-list-item-hitmen-value="<%= @hitmen.to_json %>">
 
   <div class="icons">
     <ul>
-      <li><i class="fa-solid fa-gun"></i></li>
-      <li><i class="fa-regular fa-hand-back-fist"></i></li>
-      <li><i class="fa-solid fa-car-side"></i></li>
+      <%= link_to '/hitmen?query=gun&commit=Search' do %>
+        <li><i class="fa-solid fa-gun"></i></li>
+      <% end %>
+      <%= link_to '/hitmen?query=punch&commit=Search' do %>
+        <li><i class="fa-regular fa-hand-back-fist"></i></li>
+      <% end %>
+      <%= link_to '/hitmen?query=car&commit=Search' do %>
+        <li><i class="fa-solid fa-car-side"></i></li>
+      <% end %>
     </ul>
   </div>
+  
   <div class="border my-5 rounded border-danger"></div>
+
+  <div class="form-container" style="display: none;">
+    <%= form_with url: hitmen_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "input a method"%>
+      <%= submit_tag "Search", class: "btn btn-primary"%>
+    <% end %>
+  </div>
+
   <div class="cards">
     <% @hitmen.each do |hitman| %>
       <div class="card">
-        <img src="https://i.pinimg.com/564x/d4/ea/ba/d4eaba5087c88acbd79d42602aa5e175.jpg" alt="agent 47">
+      <!-- Cloudinary begining -->
+
+        <%= render "layouts/cloudinary", place_holder: hitman %>
+
+      <!-- Cloudinary end -->
         <div class="rating">
           <%# <p><%=hitman.rating<i class="fa-solid fa-star"></i></p> %>
         </div>
