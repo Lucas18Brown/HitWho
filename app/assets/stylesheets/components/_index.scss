@@ -12,13 +12,19 @@
 @import "cards";
 @import "icon";
 @import "banner";
+@import "footer";
 
 body {
   color: #2b2d42;
   background-color: #edf2f4;
+  font-family: 'Assassin$';
 }
 
 .big-height {
   min-height: 3000px;
 }
 
+.content-container {
+  position: relative;
+  min-height: 100vh;
+}
