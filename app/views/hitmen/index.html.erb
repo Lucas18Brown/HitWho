@@ -11,16 +11,18 @@
       <ul class="navbar-nav me-auto">
         <% if current_user %>
           <li class="nav-item">
-            <p><%= current_user.username.capitalize %></p>
+            <p><%= current_user.username %></p>
           </li>
          <li class="nav-item dropdown">
+
             <!-- Cloudinary begining -->
-
-              <%# <%= render "layouts/cloudinary", place_holder: current_user, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> %>
-
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
             <!-- Cloudinary end -->
 
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
               <% link_to "My Hitmen", "#", class: "dropdown-item" %>
@@ -57,7 +59,7 @@
       <% end %>
     </ul>
   </div>
-  
+
   <div class="border my-5 rounded border-danger"></div>
 
   <div class="form-container" style="display: none;">
@@ -73,11 +75,15 @@
   <div class="cards">
     <% @hitmen.each do |hitman| %>
       <div class="card">
+
       <!-- Cloudinary begining -->
-
-        <%= render "layouts/cloudinary", place_holder: hitman %>
-
+        <% if hitman.photo.attached? %>
+          <%= cl_image_tag hitman.photo.key %>
+        <% else %>
+          <%= image_tag "logo.png" %>
+        <% end %>
       <!-- Cloudinary end -->
+
         <div class="rating">
           <%# <p><%=hitman.rating<i class="fa-solid fa-star"></i></p> %>
         </div>

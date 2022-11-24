@@ -11,10 +11,19 @@
       <ul class="navbar-nav me-auto">
         <% if current_user %>
           <li class="nav-item">
-            <p><%= current_user.username.capitalize %></p>
+            <p><%= current_user.username %></p>
           </li>
          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+            <!-- Cloudinary begining -->
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <!-- Cloudinary end -->
+
+            <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
               <% link_to "My Hitmen", "#", class: "dropdown-item" %>
@@ -33,8 +42,17 @@
 <div class="container">
   <div class="user-profile">
     <div class="imgitem">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "profile-avatar", alt: "avatar-large" %>
-      <span class="caption"><%= current_user.username.capitalize %></span>
+
+      <!-- Cloudinary begining -->
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "profile-avatar", alt: "avatar-large" %>
+      <% else %>
+        <%= image_tag "logo.png", class: "profile-avatar", alt: "avatar-large" %>
+      <% end %>
+      <!-- Cloudinary end -->
+
+      <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "profile-avatar", alt: "avatar-large" %>
+      <span class="caption"><%= current_user.username %></span>
       </div>
       <div class="bookings">
         <h1> My Bookings</h1>
@@ -54,7 +72,16 @@
         <h1>My Hitmen</h1>
         <% current_user.hitmen.each do |hitman| %>
           <div class="card-product-hitmen">
-            <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+
+            <!-- Cloudinary begining -->
+            <% if hitman.photo.attached? %>
+              <%= cl_image_tag hitman.photo.key %>
+            <% else %>
+              <%= image_tag "logo.png" %>
+            <% end %>
+            <!-- Cloudinary end -->
+
+            <%# <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
             <div class="card-product-infos">
               <h2><%= hitman.name.capitalize %></h2>
               <%= link_to hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
