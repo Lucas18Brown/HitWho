@@ -34,7 +34,7 @@ class HitmenController < ApplicationController
 
   def destroy
     @hitman.destroy
-    redirect_to hitmen_path, status: :see_other
+    redirect_to user_path, status: :see_other
   end
 
   private
@@ -44,6 +44,6 @@ class HitmenController < ApplicationController
   end
 
   def hitman_params
-    params.require(:hitman).permit(:name, :price, :description, :ratin, :photo)
+    params.require(:hitman).permit(:name, :price, :description, :rating, :method, :photo)
   end
 end
