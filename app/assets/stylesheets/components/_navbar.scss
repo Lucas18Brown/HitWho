@@ -2,8 +2,9 @@
   justify-content: space-between;
   position: sticky;
   top: 0;
+  height: 80px;
+  box-shadow: 1px 1px 8px rgba(128, 128, 128, 0.2);
 }
-
 
 .nav-item {
   p {
@@ -11,15 +12,6 @@
     margin: auto;
     padding: 10px;
   }
-}
-
-.nav-bookings {
-  color: white;
-  text-decoration: none;
-}
-
-.nav-bookings:hover {
-  color: #d90429;
 }
 
 .navbar-lewagon .navbar-collapse {

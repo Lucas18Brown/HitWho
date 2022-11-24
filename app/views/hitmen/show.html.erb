@@ -1,36 +1,55 @@
-<div class="navbar border border-danger">
-NAVBAR
-</div>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon overlay" data-controller="navbar" data-action="scroll@window->navbar#background">
+  <div class="container-fluid">
+    <%= link_to hitmen_path do %>
+      <%= image_tag "logo.png", class: 'navbar-brand'%>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<div class="profile-banner">
-  <%= link_to hitmen_path do %>
-    <i class="fa-solid fa-arrow-left"></i>
-  <% end %>
-</div>
-
-<div class="profile-container">
-<!-- Cloudinary begining -->
-
-  <%= render "layouts/cloudinary", place_holder: @hitman %>
-
-<!-- Cloudinary end -->
-
-
-  <p class="profile-name">
-    <%= @hitman.name %>
-  </p>
-
-  <div class="killing-method-icons">
-    <i class="fa-solid fa-shield-halved"></i>
-    <i class="fa-solid fa-ghost"></i>
-    <i class="fa-solid fa-campfire"></i>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if current_user %>
+          <li class="nav-item">
+            <p><%= current_user.username.capitalize %></p>
+          </li>
+         <li class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
+              <% link_to "My Hitmen", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-
-
 </div>
-
-<p><%= @hitman.description %></p>
-
+<div class="profile-banner">
+  <div class="profile-img-container">
+    <%= render "layouts/cloudinary", place_holder: @hitman %>
+  </div>
+</div>
+<div class="buttons-profile">
+  <button class="btn btn-danger">
+    <%= link_to "Add a booking", new_hitman_booking_path(@hitman) %>
+  </button>
+</div>
+<div class="name-container">
+  <h1><%= @hitman.name %></h1>
+</div>
+<div class="profile-info-container">
+  <div class="killing-method-icons col-4">
+    <h1>method</h1>
+  </div>
+  <div class="description col-8">
+    <h1>Description</h1>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  </div>
+</div>
 <%# <%= link_to "View Bookings", hitman_bookings_path(@hitman) %>
-<%= link_to "Add a booking", new_hitman_booking_path(@hitman) %>
-<%= link_to "Edit", edit_hitman_path(@hitman) %>

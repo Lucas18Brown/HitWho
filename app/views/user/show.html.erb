@@ -1,52 +1,72 @@
-<div class="bookings-container">
-  <%= link_to hitmen_path, class: "back-button" do %>
-    <i class="fa-solid fa-arrow-left"></i>
-  <% end %>
-  <div class="row">
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="user-profile">
-        <div class="imgitem">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "profile-avatar", alt: "avatar-large" %>
-            <span class="caption"><%= current_user.username.capitalize %></span>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class ="myhitmen">
-                <h1> My Hitmen</h1>
-                <% current_user.hitmen.each do |hitman| %>
-                      <div class="card-product-hitmen">
-                          <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-                        <div class="card-product-infos">
-                          <h2><%= hitman.name.capitalize %></h2>
-                          <%= link_to hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                            <i class="fa-solid fa-xmark"></i>
-                          <% end %>
-                        </div>
-                      </div>
-                <% end %>
-              </div>
-          </div>
-        </div>
-      </div>
-        <div class="col-12 col-md-6 col-lg-8">
-          <div class="bookings">
-            <h1> My Bookings</h1>
-              <% @bookings.each do |booking| %>
-                <div class="card-product">
-                    <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-                  <div class="card-product-infos">
-                    <h2><%= booking.name %></h2>
-                    <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                      <i class="fa-solid fa-xmark"></i>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-          </div>
-        </div>
-  </div>
-  <button class="btn btn-danger">
-    <%= link_to "Add Hitman", new_hitman_path %>
-  </button>
-</div>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color: black; height: 70px;">
+    <div class="container-fluid">
+    <%= link_to hitmen_path do %>
+      <%= image_tag "logo.png", class: 'navbar-brand'%>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<%# on the left profile, on the right bookings %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if current_user %>
+          <li class="nav-item">
+            <p><%= current_user.username.capitalize %></p>
+          </li>
+         <li class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
+              <% link_to "My Hitmen", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="user-profile">
+    <div class="imgitem">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "profile-avatar", alt: "avatar-large" %>
+      <span class="caption"><%= current_user.username.capitalize %></span>
+      </div>
+      <div class="bookings">
+        <h1> My Bookings</h1>
+        <% @bookings.each do |booking| %>
+          <div class="card-product">
+            <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+            <div class="card-product-infos">
+              <h2><%= booking.name %></h2>
+              <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                <i class="fa-solid fa-xmark"></i>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class ="myhitmen">
+        <h1>My Hitmen</h1>
+        <% current_user.hitmen.each do |hitman| %>
+          <div class="card-product-hitmen">
+            <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%= hitman.name.capitalize %></h2>
+              <%= link_to hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                <i class="fa-solid fa-xmark"></i>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <button class="btn btn-danger">
+          <%= link_to "Add Hitman", new_hitman_path %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

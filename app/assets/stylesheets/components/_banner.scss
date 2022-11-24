@@ -1,8 +1,18 @@
 .banner {
-  background-image: url("https://i.pinimg.com/564x/e4/f4/fb/e4f4fb0f4821bb67aba8fdf960b6ddc3.jpg");
+  background-image: url("https://i.pinimg.com/originals/0e/aa/c7/0eaac74f9ca770def10fcf3f9eecc234.jpg");
   width: 100%;
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
+  display: flex;
+
+  .slogan-container {
+    padding-top: 350px;
+    padding-bottom: 350px;
+    h1 {
+      color: #EDF2F4;
+    }
+  }
+
 }
