@@ -5,22 +5,12 @@ export default class extends Controller {
   static targets = ["navbar"]
   connect() {
     console.log("Hello from navbar")
+    console.log(window.scrollY);
   }
 
-  background() {
-    // if (window.scrollY >= (window.innerHeight - 150)) {
-    //   this.element.setAttribute('style', 'background-color: black;')
-    // } else  {
-    //   this.element.removeAttribute('style')
-    // }
+  scroll(){
+    console.log("HIT");
+    window.scrollTo(0, 591)
 
-    // if (window.scrollY > 554) {
-    //   this.navbarTarget.setAttribute('style', 'background-color: black;')
-    // }
   }
-
-  filterWindow() {
-    // this.navbarTarget.setAttribute('style', 'background-color: black;')
-  }
-
 }
