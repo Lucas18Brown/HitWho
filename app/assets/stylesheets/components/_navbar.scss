@@ -2,8 +2,9 @@
   justify-content: space-between;
   position: sticky;
   top: 0;
-  height: 80px;
-  box-shadow: 1px 1px 8px rgba(128, 128, 128, 0.2);
+  height: 55px;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: saturate(180%) blur(20px);
 }
 
 .nav-item {
