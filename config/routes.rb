@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :hitmen do
-    resources :bookings, only: [:new, :create, :update, :index, :edit, :show]
+    resources :bookings, only: [:new, :create, :update, :index, :edit, :show] do
+      resources :reviews, only: [:show, :new, :create, :destroy]
+    end
   end
   resources :bookings, only: [:destroy]
   resources :user, only: [:show]
+
 end
