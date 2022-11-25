@@ -11,6 +11,5 @@ export default class extends Controller {
   scroll(){
     console.log("HIT");
     window.scrollTo(0, 800)
-
   }
 }
