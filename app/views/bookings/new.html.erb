@@ -1,7 +1,15 @@
-<%= simple_form_for [@hitman, @booking] do |f| %>
-  <%= f.input :name, :placeholder => "target name..."%>
-  <%= f.input :photo, :label => "Target", as: :file %>
-  <%= f.submit %>
-<% end %>
+<div class="container" style=" margin-top: 6%; width: 600px" >
+  <%= simple_form_for [@hitman, @booking] do |f| %>
+    <div class="input-box my-3">
+      <%= f.input :name, :placeholder => "target name..."%>
+    </div>
+    <div class="input-box my-3">
+      <%= f.input :photo, :label => "Target", as: :file %>
+    </div>
+    <div class="button-25">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
 
-<a href="javascript:history.back()" class="button-24">Go Back</a>
+  <a href="javascript:history.back()"><i class="fa-solid fa-arrow-left text-danger"></i></a>
+</div>
