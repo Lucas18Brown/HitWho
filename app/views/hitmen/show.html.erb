@@ -1,7 +1,12 @@
 <div class="profile-banner">
   <div class="profile-img-container">
-    <%= render "layouts/cloudinary", place_holder: @hitman %>
-  <h1><%= @hitman.name.capitalize %></h1>
+  <!-- Cloudinary begining -->
+    <% if @hitman.photo.attached? %>
+      <%= cl_image_tag @hitman.photo.key %>
+    <% else %>
+      <%= image_tag "logo.png" %>
+    <% end %>
+  <!-- Cloudinary end -->
   </div>
 </div>
 <div class="buttons-profile">

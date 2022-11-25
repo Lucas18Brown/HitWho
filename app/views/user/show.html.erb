@@ -1,13 +1,25 @@
 <div class="user-profile">
   <div class="imgitem">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "profile-avatar", alt: "avatar-large" %>
+    <<!-- Cloudinary begining -->
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "profile-avatar", alt: "avatar-large" %>
+      <% else %>
+        <%= image_tag "logo.png", class: "profile-avatar", alt: "avatar-large" %>
+      <% end %>
+      <!-- Cloudinary end -->
     <span class="caption"><%= current_user.username.capitalize %></span>
     </div>
     <div class="bookings">
       <h1> My Bookings</h1>
       <% @bookings.each do |booking| %>
         <div class="card-product">
-          <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+            <!-- Cloudinary begining -->
+            <% if booking.photo.attached? %>
+              <%= cl_image_tag booking.photo.key %>
+            <% else %>
+              <%= image_tag "logo.png" %>
+            <% end %>
+            <!-- Cloudinary end -->
           <div class="card-product-infos">
             <h2><%= booking.name %></h2>
             <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
@@ -21,7 +33,15 @@
       <h1>My Hitmen</h1>
       <% current_user.hitmen.each do |hitman| %>
         <div class="card-product-hitmen">
-          <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          
+            <!-- Cloudinary begining -->
+            <% if hitman.photo.attached? %>
+              <%= cl_image_tag hitman.photo.key %>
+            <% else %>
+              <%= image_tag "logo.png" %>
+            <% end %>
+            <!-- Cloudinary end -->
+
           <div class="card-product-infos">
             <h2><%= hitman.name.capitalize %></h2>
             <%= link_to hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>

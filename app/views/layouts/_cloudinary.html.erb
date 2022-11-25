@@ -1,7 +1,0 @@
-<!-- Display image from Cloudinary or logo -->
-
-<% if place_holder.photo.attached? %>
-  <%= cl_image_tag place_holder.photo.key %>
-<% else %>
-  <%= image_tag "logo.png", class: 'logo' %>
-<% end %>

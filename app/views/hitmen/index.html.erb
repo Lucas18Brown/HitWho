@@ -1,3 +1,11 @@
+         <!-- Cloudinary begining -->
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <!-- Cloudinary end -->
+
 <div class="banner">
   <div class="typewriter">
     <h1 class="top">There's A Bullet For Everyone.</h1>
@@ -51,11 +59,15 @@
   <div class="cards">
     <% @hitmen.each do |hitman| %>
       <div class="card">
+
       <!-- Cloudinary begining -->
-
-        <%= render "layouts/cloudinary", place_holder: hitman %>
-
+        <% if hitman.photo.attached? %>
+          <%= cl_image_tag hitman.photo.key %>
+        <% else %>
+          <%= image_tag "logo.png" %>
+        <% end %>
       <!-- Cloudinary end -->
+
         <div class="rating">
           <%# <p><%=hitman.rating<i class="fa-solid fa-star"></i></p> %>
         </div>
