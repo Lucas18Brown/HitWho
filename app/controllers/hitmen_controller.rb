@@ -6,10 +6,12 @@ class HitmenController < ApplicationController
   end
 
   def show
+    @review = Review.new
   end
 
   def new
     @hitman = Hitman.new
+
   end
 
   def create
