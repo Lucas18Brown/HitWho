@@ -1,66 +1,45 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon overlay" data-controller="navbar" data-action="scroll@window->navbar#background">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <%= image_tag "logo.png", class: 'logo'%>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if current_user %>
-          <li class="nav-item">
-            <p><%= current_user.username.capitalize %></p>
-          </li>
-         <li class="nav-item dropdown">
-            <!-- Cloudinary begining -->
-
-              <%# <%= render "layouts/cloudinary", place_holder: current_user, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> %>
-
-            <!-- Cloudinary end -->
-
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
-              <% link_to "My Hitmen", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-        <% else %>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path %>
-            </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
 <div class="banner">
   <div class="slogan-container col-6">
     <h1>There's A Bullet For Everyone. And A Time. And A Place.</h1>
   </div>
 </div>
 <div class="big-height">
-<div class="container" data-controller="list-item" data-list-item-hitmen-value="<%= @hitmen.to_json %>">
+<div class="container"%>
 
   <div class="icons">
+    <div id="anchor-div" style="display: none;">
+    </div>
     <ul>
-      <%= link_to '/hitmen?query=gun&commit=Search' do %>
+      <%= link_to hitmen_path(query: '', anchor: "anchor-div"), class: "all" do %>
+        <li><i class="fa-solid fa-xmark"></i></li>
+      <% end %>
+      <%= link_to hitmen_path(query: 'gun', anchor: "anchor-div"), class: "gun" do %>
         <li><i class="fa-solid fa-gun"></i></li>
       <% end %>
-      <%= link_to '/hitmen?query=punch&commit=Search' do %>
-        <li><i class="fa-regular fa-hand-back-fist"></i></li>
+      <%= link_to hitmen_path(query: 'punch', anchor: "anchor-div"), class: "punch" do %>
+        <li><i class="fa-solid fa-hand-back-fist"></i></li>
       <% end %>
-      <%= link_to '/hitmen?query=car&commit=Search' do %>
+      <%= link_to hitmen_path(query: 'car', anchor: "anchor-div"), class: "car" do %>
         <li><i class="fa-solid fa-car-side"></i></li>
+      <% end %>
+      <%= link_to hitmen_path(query: 'superpower', anchor: "anchor-div"), class: "superpower" do %>
+        <li><i class="fa-brands fa-superpowers"></i></li>
+      <% end %>
+      <%= link_to hitmen_path(query: 'knife', anchor: "anchor-div"), class: "knife" do %>
+        <li><i class="fa-solid fa-marker"></i></li>
+      <% end %>
+      <%= link_to hitmen_path(query: 'fatality', anchor: "anchor-div"), class: "fatality" do %>
+        <li><i class="fa-solid fa-skull-crossbones"></i></li>
+      <% end %>
+      <%= link_to hitmen_path(query: 'poison', anchor: "anchor-div"), class: "poison" do %>
+        <li><i class="fa-solid fa-soap"></i></li>
       <% end %>
     </ul>
   </div>
-  
-  <div class="border my-5 rounded border-danger"></div>
 
-  <div class="form-container" style="display: none;">
+  <div class="border my-3 rounded border-danger"></div>
+
+  <div class="form-container" id="form-style" style="display: none;">
     <%= form_with url: hitmen_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
         params[:query],
@@ -86,6 +65,8 @@
             <h3><strong><%= link_to hitman.name.capitalize, hitman_path(hitman) %></strong></h3>
             <div class="desc-price">
               <p><%= "£#{hitman.price.to_i}" %></p>
+              <%# <% case %>
+              <%# when hitman.method == "gun" then  %>
               <p><%= hitman.method %></p>
             </div>
           <div class="border m-auto rounded"></div>
