@@ -27,6 +27,7 @@
   touch-action: manipulation;
   vertical-align: middle;
   margin-top: 20px;
+  margin-bottom: 20px;
   a {
     text-decoration: none;
     color: #EDF2F4;
@@ -75,6 +76,14 @@
   opacity: .5;
 }
 
+.fa-angle-down {
+  color: #EDF2F4;
+  font-size: 30px;
+}
+
+.fa-angle-down:hover {
+  cursor: pointer;
+
 .button-25:hover,
 .button-25:active {
   background-color: #EF233C;
@@ -84,4 +93,5 @@
 
 .button-25:active {
   opacity: .5;
+
 }
