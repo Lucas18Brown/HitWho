@@ -7,5 +7,5 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 
 @font-face {
 	font-family: 'Assassin$';
-	src: url('Assassin$.ttf') format("truetype");
+	src: font-url('/app/assets/fonts/Assassin$.ttf') format("truetype");
 }
