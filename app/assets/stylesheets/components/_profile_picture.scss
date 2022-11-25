@@ -1,21 +1,24 @@
-.profile-container {
-  // position: relative;
-  img {
-    // position: absolute;
-    // top: -125px;
-    // left: 100px;
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    border: 3px solid white ;
+.profile-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-start;
+  height: 450px;
+
+  i {
+    font-size: 30px;
+    text-align: center;
+  }
+  h1 {
+    margin: 10px auto;
+  }
+
+  .description {
+    text-align: left;
   }
 }
 
-.profile-container i {
-  font-size: 40px;
-}
-
-.profile-container p {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 40px;
+.killing-method-icons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

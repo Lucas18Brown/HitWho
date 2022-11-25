@@ -1,47 +1,41 @@
-<div class="navbar border border-danger">
-NAVBAR
-</div>
-
 <div class="profile-banner">
-  <%= link_to hitmen_path do %>
-    <i class="fa-solid fa-arrow-left"></i>
-  <% end %>
-</div>
-
-<div class="profile-container">
-  <img src="https://twinfinite.net/wp-content/uploads/2021/04/hitman-3.jpeg" alt="">
-
-  <p class="profile-name">
-    <%= @hitman.name %>
-  </p>
-
-  <div class="killing-method-icons">
-    <i class="fa-solid fa-shield-halved"></i>
-    <i class="fa-solid fa-ghost"></i>
-    <i class="fa-solid fa-campfire"></i>
+  <div class="profile-img-container">
+    <%= render "layouts/cloudinary", place_holder: @hitman %>
+  <h1><%= @hitman.name.capitalize %></h1>
   </div>
-
+</div>
+<div class="buttons-profile">
+  <button class="button-24" role="button">
+    <%= link_to "Add a booking", new_hitman_booking_path(@hitman) %>
+  </button>
+</div>
+<div class="profile-info-container">
+  <div class="killing-method-icons col-4">
+    <h1>Method of Killing</h1>
+    <i class="fa-solid fa-gun"></i>
+  </div>
+  <div class="description col-8">
+    <h1>Description</h1>
+    <p><%= @hitman.description %></p>
+  </div>
 </div>
 
 <p><%= @hitman.description %></p>
 <% unless current_user.nil? %>
-  <%# <%= link_to "View Bookings", hitman_bookings_path(@hitman) %>
   <%= link_to "Add a booking", new_hitman_booking_path(@hitman) %>
   <%= link_to "Edit", edit_hitman_path(@hitman) %>
-
-
   <% @hitman.bookings.each do |booking| %>
     <%= link_to "Add a review", new_hitman_booking_review_path(@hitman, booking) %>
   <%end%>
 <% end %>
 
-  <div class="card-product-reviews">
-    <div class="scroll-reviews" style="overflow-y: scroll; height:400px;">
-          <% @hitman.reviews.each do |c| %>
-            <div class="each-review">
-              <p><%= c.comment.capitalize %></p>
-              <p><%= c.rating %></p>
-            </div>
-          <% end %>
-    </div>
+<div class="card-product-reviews">
+  <div class="scroll-reviews" style="overflow-y: scroll; height:400px;">
+    <% @hitman.reviews.each do |c| %>
+      <div class="each-review">
+        <p><%= c.comment.capitalize %></p>
+        <p><%= c.rating %></p>
+      </div>
+    <% end %>
   </div>
+</div>

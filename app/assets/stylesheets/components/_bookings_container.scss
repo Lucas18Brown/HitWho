@@ -1,28 +1,47 @@
-.bookings-container {
-  position: relative;
+.container {
+margin: 0 auto;
 }
 
-.user-profile{
-  float: center;
+.navbar-brand {
+  width: 60px;
+}
+
+.user-profile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .myhitmen{
-  margin-left: auto;
-  margin-right: auto;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 80px;
 }
 
 .myhitmen h1 {
-  width: 220px;
+  color: #2B2D42;
+  font-family:'Assassin$';
+  margin: 0;
+}
+
+.bookings {
+  margin-top: 40px;
+}
+
+.bookings h1 {
+  color: #2B2D42;
+  padding-top: 20px;
+  font-family:'Assassin$';
+  margin: 0;
 }
 
 .imgitem {
-  vertical-align: top;
-  display: inline-block;
-  text-align: center;
-  width: 200px;
-  padding-bottom: 50px;
-
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .caption {
@@ -33,17 +52,6 @@
 .fa-solid {
   padding: 20px;
   color: #d90429;
-}
-
-.btn-danger {
-  box-shadow: 1px 1px 8px rgba(128, 128, 128, 0.2);
-  position: absolute;
-  top: 10px;
-  left: 140px;
-  a {
-    text-decoration: none;
-    color: #2B2D42;
-  }
 }
 
 .card-product-hitmen {
@@ -58,7 +66,6 @@
 
 .card-product {
   position: relative;
-  margin-right: 25px;
 
   a {
     position: absolute;

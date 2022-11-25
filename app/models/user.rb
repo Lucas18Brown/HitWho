@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :hitmen
-
+  has_one_attached :photo
 end

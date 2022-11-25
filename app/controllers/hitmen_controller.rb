@@ -2,7 +2,12 @@ class HitmenController < ApplicationController
   before_action :set_hitman, only: %i[show edit update destroy]
 
   def index
-    @hitmen = Hitman.all
+    if params[:query].present?
+      @hitmen = Hitman.where(method: params[:query])
+
+    else
+      @hitmen = Hitman.all
+    end
   end
 
   def show
@@ -46,6 +51,6 @@ class HitmenController < ApplicationController
   end
 
   def hitman_params
-    params.require(:hitman).permit(:name, :price, :description, :rating, :method)
+    params.require(:hitman).permit(:name, :price, :description, :rating, :method, :photo)
   end
 end

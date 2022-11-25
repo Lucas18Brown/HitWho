@@ -15,3 +15,71 @@
     }
   }
 }
+
+.icons ul a {
+  text-decoration: none;
+}
+
+.all {
+  transition: transform 4s ease;
+}
+
+.all :hover {
+  transform: scale(1.5);
+}
+
+.gun {
+  transition: transform 4s ease;
+}
+
+.gun :hover {
+  transform: scale(1.5);
+}
+
+.poison {
+  transition: transform 4s ease;
+}
+
+.poison :hover {
+  transform: scale(1.5);
+}
+
+.knife {
+  transition: transform 4s ease;
+}
+
+.knife :hover {
+  transform: scale(1.5);
+}
+
+.fatality {
+  transition: transform 4s ease;
+}
+
+.fatality :hover {
+  transform: scale(1.5);
+}
+
+.punch {
+  transition: transform 4s ease;
+}
+
+.punch :hover {
+  transform: scale(1.5);
+}
+
+.car {
+  transition: transform 4s ease;
+}
+
+.car :hover {
+  transform: scale(1.5);
+}
+
+.superpower {
+  transition: transform 4s ease;
+}
+
+.superpower :hover {
+  transform: scale(1.5);
+}
