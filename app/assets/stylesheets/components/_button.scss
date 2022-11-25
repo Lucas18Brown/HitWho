@@ -33,6 +33,37 @@
   }
 }
 
+.button-25 {
+  background: #D90429;
+  border: 1px solid #D90429;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #EDF2F4;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 0px;
+  min-height: 10px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  margin-top: 20px;
+  a {
+    text-decoration: none;
+    color: #EDF2F4;
+  }
+}
+
+
 .button-24:hover,
 .button-24:active {
   background-color: #EF233C;
@@ -41,5 +72,16 @@
 }
 
 .button-24:active {
+  opacity: .5;
+}
+
+.button-25:hover,
+.button-25:active {
+  background-color: #EF233C;
+  background-position: 0 0;
+  color: #D90429;
+}
+
+.button-25:active {
   opacity: .5;
 }

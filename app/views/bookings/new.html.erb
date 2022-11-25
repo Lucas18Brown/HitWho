@@ -1,9 +1,7 @@
-<h1>NEW BOOKING</h1>
-
 <%= simple_form_for [@hitman, @booking] do |f| %>
   <%= f.input :name, :placeholder => "target name..."%>
   <%= f.input :photo, :label => "Target", as: :file %>
   <%= f.submit %>
 <% end %>
 
-<%= link_to "Back", hitman_path(@hitman) %>
+<a href="javascript:history.back()" class="button-24">Go Back</a>
