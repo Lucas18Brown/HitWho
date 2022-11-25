@@ -11,19 +11,17 @@
 </div>
 <div class="buttons-profile">
   <% unless current_user.nil? %>
-  <div class="buttons-profile">
-    <div class="two-buttons">
-      <button class="button-24" role="button">
+    <div class="buttons-profile">
+      <button class="button-24 mx-5" role="button">
         <%= link_to "Add a booking", new_hitman_booking_path(@hitman) %>
-      </div>
-        <% @hitman.bookings.each do |booking| %>
-        <div class="buttons-profile">
-          <button class="button-24" role="button">
-            <%= link_to "Add a review", new_hitman_booking_review_path(@hitman, booking) %>
-        </div>
+      </button>
+      <% @hitman.bookings.each do |booking| %>
+        <button class="button-24" role="button">
+          <%= link_to "Add a review", new_hitman_booking_review_path(@hitman, booking) %>
+        </button>
+      <%end%>
     </div>
-    <%end%>
-<% end %>
+  <% end %>
 </div>
 <div class="profile-info-container">
   <div class="killing-method-icons col-4">
@@ -37,15 +35,15 @@
 </div>
 
 
+      <% @hitman.reviews.each do |c| %>
 <div class="review-content">
   <div class="card-product-reviews">
     <div class="scroll-reviews" style="overflow-y: scroll; height:400px;">
-      <% @hitman.reviews.each do |c| %>
         <div class="each-review">
           <p><%= c.comment.capitalize %></p>
           <p><%= c.rating %> <i style="color: #EF233C;" class="fa-solid fa-star " ></i> </p>
         </div>
-      <% end %>
     </div>
   </div>
 </div>
+      <% end %>
