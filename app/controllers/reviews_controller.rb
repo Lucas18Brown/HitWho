@@ -13,8 +13,8 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
     if @review.save
       redirect_to hitman_path(@hitman)
-   else
-    @review = Review.new
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
