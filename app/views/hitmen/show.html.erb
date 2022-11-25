@@ -33,23 +33,22 @@
 <div class="profile-banner">
   <div class="profile-img-container">
     <%= render "layouts/cloudinary", place_holder: @hitman %>
+  <h1><%= @hitman.name.capitalize %></h1>
   </div>
 </div>
 <div class="buttons-profile">
-  <button class="btn btn-danger">
+  <button class="button-24" role="button">
     <%= link_to "Add a booking", new_hitman_booking_path(@hitman) %>
   </button>
 </div>
-<div class="name-container">
-  <h1><%= @hitman.name %></h1>
-</div>
 <div class="profile-info-container">
   <div class="killing-method-icons col-4">
-    <h1>method</h1>
+    <h1>Method of Killing</h1>
+    <i class="fa-solid fa-gun"></i>
   </div>
   <div class="description col-8">
     <h1>Description</h1>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <p><%= @hitman.description %></p>
   </div>
 </div>
 <%# <%= link_to "View Bookings", hitman_bookings_path(@hitman) %>
