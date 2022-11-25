@@ -11,6 +11,10 @@
   margin-right: 30px;
   background-color: none;
 
+  a {
+    height: 100%;
+  }
+
   .rating {
     color: white;
     position: absolute;
@@ -23,6 +27,7 @@
   }
 
   img {
+    width: 100%;
     object-fit: cover;
     object-position: top;
     height: 70%;
@@ -39,14 +44,15 @@
     text-align: left;
     background-color: #edf2f4;
 
-    a {
-      font-family:'Assassin$';
-      font-size: 25px;
-      color: #d90429;
-      text-decoration: none;
+    h3 {
+      strong {
+        font-family: 'Assassin$';
+        color: #D90429;
+      }
     }
 
     p {
+      color: #2B2D42;
       margin-bottom: 10px;
     }
 

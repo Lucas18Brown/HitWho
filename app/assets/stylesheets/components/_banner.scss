@@ -7,8 +7,9 @@
   background-position: center;
   margin-bottom: 48px;
   display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
   position: relative;
-
   h1 {
     color: #D90429;
     font-family: 'Assassin$';

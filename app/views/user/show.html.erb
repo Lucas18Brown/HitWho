@@ -1,6 +1,7 @@
+<div class="border-profile"></div>
 <div class="user-profile">
   <div class="imgitem">
-    <<!-- Cloudinary begining -->
+    <!-- Cloudinary begining -->
       <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, class: "profile-avatar", alt: "avatar-large" %>
       <% else %>
@@ -8,27 +9,6 @@
       <% end %>
       <!-- Cloudinary end -->
     <span class="caption"><%= current_user.username.capitalize %></span>
-    </div>
-    <div class="bookings">
-      <h1> My Bookings</h1>
-      <% @bookings.each do |booking| %>
-        <div class="card-product">
-            <!-- Cloudinary begining -->
-            <% if booking.photo.attached? %>
-              <%= cl_image_tag booking.photo.key %>
-            <% else %>
-              <%= image_tag "logo.png" %>
-            <% end %>
-            <!-- Cloudinary end -->
-          <div class="card-product-infos">
-            <h2><%= "Target: #{booking.name}" %></h2>
-            <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-              <i class="fa-solid fa-xmark"></i>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
     <div class ="myhitmen">
       <h1>My Hitmen</h1>
       <% current_user.hitmen.each do |hitman| %>
@@ -57,5 +37,27 @@
         <%= link_to "Add Hitman", new_hitman_path %>
       </button>
     </div>
+    </div>
+    <div class="bookings">
+      <h1> My Bookings</h1>
+      <% @bookings.each do |booking| %>
+        <div class="card-product">
+            <!-- Cloudinary begining -->
+            <% if booking.photo.attached? %>
+              <%= cl_image_tag booking.photo.key %>
+            <% else %>
+              <%= image_tag "logo.png" %>
+            <% end %>
+            <!-- Cloudinary end -->
+          <div class="card-product-infos">
+            <h2><%= "Target: #{booking.name}" %></h2>
+            <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-xmark"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>

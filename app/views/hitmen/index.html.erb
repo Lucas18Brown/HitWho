@@ -2,79 +2,82 @@
   <div class="typewriter">
     <h1 class="top">There's A Bullet For Everyone.</h1>
   </div>
+  <div class="button-container">
+    <i class="fa-solid fa-angle-down"></i>
+  </div>
 </div>
 <div class="big-height">
-<div class="container"%>
-  <div class="icons">
-    <div id="anchor-div" style="display: none;">
+  <div class="container">
+    <div class="icons">
+      <div id="anchor-div" style="display: none;">
+      </div>
+      <ul>
+        <%= link_to hitmen_path(query: '', anchor: "anchor-div"), class: "all" do %>
+          <li><i class="fa-solid fa-xmark"></i></li>
+        <% end %>
+        <%= link_to hitmen_path(query: 'gun', anchor: "anchor-div"), class: "gun" do %>
+          <li><i class="fa-solid fa-gun"></i></li>
+        <% end %>
+        <%= link_to hitmen_path(query: 'punch', anchor: "anchor-div"), class: "punch" do %>
+          <li><i class="fa-solid fa-hand-back-fist"></i></li>
+        <% end %>
+        <%= link_to hitmen_path(query: 'car', anchor: "anchor-div"), class: "car" do %>
+          <li><i class="fa-solid fa-car-side"></i></li>
+        <% end %>
+        <%= link_to hitmen_path(query: 'superpower', anchor: "anchor-div"), class: "superpower" do %>
+          <li><i class="fa-brands fa-superpowers"></i></li>
+        <% end %>
+        <%= link_to hitmen_path(query: 'knife', anchor: "anchor-div"), class: "knife" do %>
+          <li><i class="fa-solid fa-marker"></i></li>
+        <% end %>
+        <%= link_to hitmen_path(query: 'fatality', anchor: "anchor-div"), class: "fatality" do %>
+          <li><i class="fa-solid fa-skull-crossbones"></i></li>
+        <% end %>
+        <%= link_to hitmen_path(query: 'poison', anchor: "anchor-div"), class: "poison" do %>
+          <li><i class="fa-solid fa-soap"></i></li>
+        <% end %>
+      </ul>
     </div>
-    <ul>
-      <%= link_to hitmen_path(query: '', anchor: "anchor-div"), class: "all" do %>
-        <li><i class="fa-solid fa-xmark"></i></li>
-      <% end %>
-      <%= link_to hitmen_path(query: 'gun', anchor: "anchor-div"), class: "gun" do %>
-        <li><i class="fa-solid fa-gun"></i></li>
-      <% end %>
-      <%= link_to hitmen_path(query: 'punch', anchor: "anchor-div"), class: "punch" do %>
-        <li><i class="fa-solid fa-hand-back-fist"></i></li>
-      <% end %>
-      <%= link_to hitmen_path(query: 'car', anchor: "anchor-div"), class: "car" do %>
-        <li><i class="fa-solid fa-car-side"></i></li>
-      <% end %>
-      <%= link_to hitmen_path(query: 'superpower', anchor: "anchor-div"), class: "superpower" do %>
-        <li><i class="fa-brands fa-superpowers"></i></li>
-      <% end %>
-      <%= link_to hitmen_path(query: 'knife', anchor: "anchor-div"), class: "knife" do %>
-        <li><i class="fa-solid fa-marker"></i></li>
-      <% end %>
-      <%= link_to hitmen_path(query: 'fatality', anchor: "anchor-div"), class: "fatality" do %>
-        <li><i class="fa-solid fa-skull-crossbones"></i></li>
-      <% end %>
-      <%= link_to hitmen_path(query: 'poison', anchor: "anchor-div"), class: "poison" do %>
-        <li><i class="fa-solid fa-soap"></i></li>
-      <% end %>
-    </ul>
-  </div>
 
-  <div class="border my-4 rounded border-danger"></div>
+    <div class="border my-4 rounded border-danger"></div>
 
-  <div class="form-container" id="form-style" style="display: none;">
-    <%= form_with url: hitmen_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "input a method"%>
-      <%= submit_tag "Search", class: "btn btn-primary"%>
-    <% end %>
-  </div>
+    <div class="form-container" id="form-style" style="display: none;">
+      <%= form_with url: hitmen_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "input a method"%>
+        <%= submit_tag "Search", class: "btn btn-primary"%>
+      <% end %>
+    </div>
 
-  <div class="cards">
-    <% @hitmen.each do |hitman| %>
-      <%= link_to hitman_path(hitman) do %>
+    <div class="cards">
+      <% @hitmen.each do |hitman| %>
         <div class="card">
-          <% if hitman.photo.attached? %>
-            <%= cl_image_tag hitman.photo.key %>
-          <% else %>
-            <%= image_tag "logo.png" %>
+          <%= link_to hitman_path(hitman) do %>
+            <% if hitman.photo.attached? %>
+              <%= cl_image_tag hitman.photo.key %>
+            <% else %>
+              <%= image_tag "logo.png" %>
+            <% end %>
+            <div class="rating">
+              <%# <p><%=hitman.rating<i class="fa-solid fa-star"></i></p> %>
+            </div>
+            <div class="content">
+              <div class="border m-auto rounded"></div>
+                <h3><strong><%= hitman.name.capitalize %></strong></h3>
+                <div class="desc-price">
+                  <p><%= "£#{hitman.price.to_i}" %></p>
+                  <%# <% case %>
+                  <%# when hitman.method == "gun" then  %>
+                  <p><%= hitman.method %></p>
+                </div>
+              <div class="border m-auto rounded"></div>
+              <%# <%= link_to 'Delete', hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+            </div>
           <% end %>
-          <div class="rating">
-            <%# <p><%=hitman.rating<i class="fa-solid fa-star"></i></p> %>
-          </div>
-          <div class="content">
-            <div class="border m-auto rounded"></div>
-              <h3><strong><%= hitman.name.capitalize %></strong></h3>
-              <div class="desc-price">
-                <p><%= "£#{hitman.price.to_i}" %></p>
-                <%# <% case %>
-                <%# when hitman.method == "gun" then  %>
-                <p><%= hitman.method %></p>
-              </div>
-            <div class="border m-auto rounded"></div>
-            <%# <%= link_to 'Delete', hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-          </div>
         </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
 </div>
