@@ -1,8 +1,24 @@
-<%= simple_form_for @hitman do |f| %>
-  <%= f.input :name %>
-  <%= f.input :price %>
-  <%= f.input :method, collection: %w[gun punch car superpower knife fatality poison] %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file %> <!-- To upload profile photo -->
-  <%= f.submit %>
-<% end %>
+<div class="container" style=" margin-top: 6%; width: 600px" >
+  <%= simple_form_for @hitman do |f| %>
+    <div class="input-box my-3">
+      <%= f.input :name%>
+    </div>
+    <div class="input-box my-3">
+      <%= f.input :price %>
+    </div>
+    <div class="input-box my-3">
+      <%= f.input :method, collection: %w[gun punch car superpower knife fatality poison] %>
+    </div>
+    <div class="input-box my-3">
+      <%= f.input :description %>
+    </div>
+    <div class="input-box my-3">
+      <%= f.input :photo, as: :file %> <!-- To upload profile photo -->
+    </div>
+    <div class="button-25">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+
+  <a href="javascript:history.back()" class="button-24" style="text-decoration: none;">Back</a>
+</div>
