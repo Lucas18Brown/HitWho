@@ -76,6 +76,12 @@
   opacity: .5;
 }
 
+.two-buttons{
+
+  display: flex;
+  justify-content: right;
+  margin: 20px;
+
 .fa-angle-down {
   color: #EDF2F4;
   font-size: 30px;
@@ -94,5 +100,4 @@
 
 .button-25:active {
   opacity: .5;
-
 }
