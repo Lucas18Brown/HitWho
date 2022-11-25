@@ -1,7 +1,12 @@
 <div class="profile-banner">
   <div class="profile-img-container">
-    <%= render "layouts/cloudinary", place_holder: @hitman %>
-  <h1><%= @hitman.name.capitalize %></h1>
+  <!-- Cloudinary begining -->
+    <% if @hitman.photo.attached? %>
+      <%= cl_image_tag @hitman.photo.key %>
+    <% else %>
+      <%= image_tag "logo.png" %>
+    <% end %>
+  <!-- Cloudinary end -->
   </div>
 </div>
 <div class="buttons-profile">
@@ -23,7 +28,6 @@
 <p><%= @hitman.description %></p>
 <% unless current_user.nil? %>
   <%= link_to "Add a booking", new_hitman_booking_path(@hitman) %>
-  <%= link_to "Edit", edit_hitman_path(@hitman) %>
   <% @hitman.bookings.each do |booking| %>
     <%= link_to "Add a review", new_hitman_booking_review_path(@hitman, booking) %>
   <%end%>
