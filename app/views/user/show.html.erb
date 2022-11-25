@@ -1,40 +1,38 @@
-<div class="container">
-  <div class="user-profile">
-    <div class="imgitem">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "profile-avatar", alt: "avatar-large" %>
-      <span class="caption"><%= current_user.username.capitalize %></span>
-      </div>
-      <div class="bookings">
-        <h1> My Bookings</h1>
-        <% @bookings.each do |booking| %>
-          <div class="card-product">
-            <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
-            <div class="card-product-infos">
-              <h2><%= booking.name %></h2>
-              <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                <i class="fa-solid fa-xmark"></i>
-              <% end %>
-            </div>
+<div class="user-profile">
+  <div class="imgitem">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "profile-avatar", alt: "avatar-large" %>
+    <span class="caption"><%= current_user.username.capitalize %></span>
+    </div>
+    <div class="bookings">
+      <h1> My Bookings</h1>
+      <% @bookings.each do |booking| %>
+        <div class="card-product">
+          <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+          <div class="card-product-infos">
+            <h2><%= booking.name %></h2>
+            <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-xmark"></i>
+            <% end %>
           </div>
-        <% end %>
-      </div>
-      <div class ="myhitmen">
-        <h1>My Hitmen</h1>
-        <% current_user.hitmen.each do |hitman| %>
-          <div class="card-product-hitmen">
-            <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <div class="card-product-infos">
-              <h2><%= hitman.name.capitalize %></h2>
-              <%= link_to hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                <i class="fa-solid fa-xmark"></i>
-              <% end %>
-            </div>
+        </div>
+      <% end %>
+    </div>
+    <div class ="myhitmen">
+      <h1>My Hitmen</h1>
+      <% current_user.hitmen.each do |hitman| %>
+        <div class="card-product-hitmen">
+          <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2><%= hitman.name.capitalize %></h2>
+            <%= link_to hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-xmark"></i>
+            <% end %>
           </div>
-        <% end %>
-        <button class="btn btn-danger">
-          <%= link_to "Add Hitman", new_hitman_path %>
-        </button>
-      </div>
+        </div>
+      <% end %>
+      <button class="button-24" role="button">
+        <%= link_to "Add Hitman", new_hitman_path %>
+      </button>
     </div>
   </div>
 </div>
