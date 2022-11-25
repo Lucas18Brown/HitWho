@@ -58,7 +58,16 @@
         <h1> My Bookings</h1>
         <% @bookings.each do |booking| %>
           <div class="card-product">
-            <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+
+            <!-- Cloudinary begining -->
+            <% if booking.photo.attached? %>
+              <%= cl_image_tag booking.photo.key %>
+            <% else %>
+              <%= image_tag "logo.png" %>
+            <% end %>
+            <!-- Cloudinary end -->
+
+            <%# <img  src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg"> %>
             <div class="card-product-infos">
               <h2><%= booking.name %></h2>
               <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
