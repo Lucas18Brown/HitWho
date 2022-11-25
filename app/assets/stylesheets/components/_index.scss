@@ -16,6 +16,7 @@
 @import "footer";
 @import "type_writer";
 @import "button";
+@import "forms";
 
 body {
   color: #2b2d42;
@@ -27,8 +28,9 @@ body {
 //   min-height: 3000px;
 // }
 
+
+
 .content-container {
   position: relative;
   min-height: 100vh;
 }
-

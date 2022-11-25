@@ -8,36 +8,61 @@ margin: 0 auto;
 
 .user-profile {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
 }
 
 .myhitmen{
+  .fa-solid {
+    padding: 20px;
+    color: #d90429;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 80px;
+  padding-top: 80px;
 }
 
 .myhitmen h1 {
-  color: #2B2D42;
+  color: #d90429;
   font-family:'Assassin$';
-  margin: 0;
+}
+
+.myhitmen h2 {
+  margin-left: 40px;
+  font-family:'Assassin$';
+  color: #2B2D42;
+  font-size: 25px;
 }
 
 .bookings {
-  margin-top: 40px;
+  .fa-solid {
+    padding: 20px;
+    color: #d90429;
+  }
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 100px;
 }
 
 .bookings h1 {
-  color: #2B2D42;
+  color: #d90429;
   padding-top: 20px;
   font-family:'Assassin$';
-  margin: 0;
+}
+
+.bookings h2 {
+  margin-left: 40px;
+  font-family:'Assassin$';
+  color: #2B2D42;
+  font-size: 25px;
 }
 
 .imgitem {
-  margin-top: 60px;
+  margin-top: 100px;
+  // margin-right: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,25 +74,26 @@ margin: 0 auto;
   font-weight: bold;
 }
 
-.fa-solid {
-  padding: 20px;
-  color: #d90429;
-}
-
 .card-product-hitmen {
   position: relative;
 
-  a {
+  .fa-xmark {
     position: absolute;
     right: 0;
     top: 0;
+  }
+
+  .fa-pen-to-square {
+    position: absolute;
+    right: -5px;
+    bottom: 0;
   }
 }
 
 .card-product {
   position: relative;
 
-  a {
+  .fa-xmark {
     position: absolute;
     right: 0;
     top: 0;

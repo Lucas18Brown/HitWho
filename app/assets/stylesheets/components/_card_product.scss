@@ -1,7 +1,7 @@
 .card-product {
-  overflow: hidden;
+  width: 100%;
   height: 120px;
-  background: white;
+  background: #EDF2F4;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
@@ -18,19 +18,7 @@
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
-}
-
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-product .card-product-infos {
-  padding: 16px;
+  margin-left: 10px;
 }
 
 .card-product-hitmen {
@@ -54,17 +42,5 @@
 .card-product-hitmen h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
-}
-
-.card-product-hitmen p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-product-hitmen .card-product-infos {
-  padding: 16px;
+  margin-left: 10px;
 }
