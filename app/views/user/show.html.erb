@@ -21,7 +21,7 @@
             <% end %>
             <!-- Cloudinary end -->
           <div class="card-product-infos">
-            <h2><%= booking.name %></h2>
+            <h2><%= "Target: #{booking.name}" %></h2>
             <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
               <i class="fa-solid fa-xmark"></i>
             <% end %>
@@ -33,7 +33,7 @@
       <h1>My Hitmen</h1>
       <% current_user.hitmen.each do |hitman| %>
         <div class="card-product-hitmen">
-          
+
             <!-- Cloudinary begining -->
             <% if hitman.photo.attached? %>
               <%= cl_image_tag hitman.photo.key %>
@@ -44,6 +44,9 @@
 
           <div class="card-product-infos">
             <h2><%= hitman.name.capitalize %></h2>
+            <%= link_to edit_hitman_path(hitman) do%>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
             <%= link_to hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
               <i class="fa-solid fa-xmark"></i>
             <% end %>

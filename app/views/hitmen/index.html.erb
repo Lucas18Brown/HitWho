@@ -1,11 +1,3 @@
-         <!-- Cloudinary begining -->
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-              <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
-            <!-- Cloudinary end -->
-
 <div class="banner">
   <div class="typewriter">
     <h1 class="top">There's A Bullet For Everyone.</h1>
@@ -43,8 +35,8 @@
       <% end %>
     </ul>
   </div>
-  
-  <div class="border my-3 rounded border-danger"></div>
+
+  <div class="border my-4 rounded border-danger"></div>
 
   <div class="form-container" id="form-style" style="display: none;">
     <%= form_with url: hitmen_path, method: :get, class: "d-flex" do %>
@@ -58,32 +50,30 @@
 
   <div class="cards">
     <% @hitmen.each do |hitman| %>
-      <div class="card">
-
-      <!-- Cloudinary begining -->
-        <% if hitman.photo.attached? %>
-          <%= cl_image_tag hitman.photo.key %>
-        <% else %>
-          <%= image_tag "logo.png" %>
-        <% end %>
-      <!-- Cloudinary end -->
-
-        <div class="rating">
-          <%# <p><%=hitman.rating<i class="fa-solid fa-star"></i></p> %>
+      <%= link_to hitman_path(hitman) do %>
+        <div class="card">
+          <% if hitman.photo.attached? %>
+            <%= cl_image_tag hitman.photo.key %>
+          <% else %>
+            <%= image_tag "logo.png" %>
+          <% end %>
+          <div class="rating">
+            <%# <p><%=hitman.rating<i class="fa-solid fa-star"></i></p> %>
+          </div>
+          <div class="content">
+            <div class="border m-auto rounded"></div>
+              <h3><strong><%= hitman.name.capitalize %></strong></h3>
+              <div class="desc-price">
+                <p><%= "£#{hitman.price.to_i}" %></p>
+                <%# <% case %>
+                <%# when hitman.method == "gun" then  %>
+                <p><%= hitman.method %></p>
+              </div>
+            <div class="border m-auto rounded"></div>
+            <%# <%= link_to 'Delete', hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+          </div>
         </div>
-        <div class="content">
-          <div class="border m-auto rounded"></div>
-            <h3><strong><%= link_to hitman.name.capitalize, hitman_path(hitman) %></strong></h3>
-            <div class="desc-price">
-              <p><%= "£#{hitman.price.to_i}" %></p>
-              <%# <% case %>
-              <%# when hitman.method == "gun" then  %>
-              <p><%= hitman.method %></p>
-            </div>
-          <div class="border m-auto rounded"></div>
-          <%# <%= link_to 'Delete', hitman_path(hitman), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

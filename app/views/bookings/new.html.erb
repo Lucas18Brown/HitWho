@@ -1,7 +1,8 @@
 <h1>NEW BOOKING</h1>
 
 <%= simple_form_for [@hitman, @booking] do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, :placeholder => "target name..."%>
+  <%= f.input :photo, :label => "Target", as: :file %>
   <%= f.submit %>
 <% end %>
 
